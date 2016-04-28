@@ -1,0 +1,67 @@
+background yes
+use_xft yes
+xftfont cure:size=9
+xftalpha 1
+update_interval 1.0
+total_run_times 0
+own_window yes
+own_window_transparent yes
+#own_window_type override
+own_window_hints undecorated,below,skip_taskbar,skip_pager
+own_window_argb_visual yes
+double_buffer yes
+minimum_size 170 170
+maximum_width 150
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+#stippled_borders yes
+default_color 545c64
+default_shade_color 0c141b
+default_outline_color 152738
+alignment top_right
+gap_x 18
+gap_y 0
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
+color1 9F440D
+color2 0C1219
+#border_width 25
+ 
+TEXT
+ 
+${color 545C64}${cpugraph cpu1 25, 150 9F440D 9F440D}$color
+CPU1: ${cpu cpu1}% ${goto 45} ${color1}${cpubar cpu1 6, 104}$color 
+${voffset -11} ${color2} ${goto 45} ${execbar echo 0}$color
+CPU2: ${cpu cpu2}% ${goto 45} ${color1}${cpubar cpu2 6, 104}$color 
+${voffset -11} ${color2} ${goto 45} ${execbar echo 0}$color
+#CPU3: ${cpu cpu3}% ${goto 45} ${color1}${cpubar cpu3 6, 104}$color 
+${voffset -11} ${color2} ${goto 45} ${execbar echo 0}$color
+#CPU4: ${cpu cpu4}% ${goto 45} ${color1}${cpubar cpu4 6, 104}$color 
+${voffset -11} ${color2} ${goto 45} ${execbar echo 0}$color
+ 
+${color 868A8E}MEMORY$color
+RAM $alignc $mem / $memmax $alignr $memperc%
+${color1}${membar 6, 149}$color
+${voffset -11}${color2}${execbar echo 0}$color
+ 
+${color 868A8E}DISK$color
+Root $alignc ${fs_used /} / ${fs_size /} $alignr ${fs_used_perc /}%
+${color1}${fs_bar 6, 149 /}$color
+${voffset -11}${color2}${execbar echo 0}$color
+ 
+${color 868A8E}PROCESSES$color
+${top_mem name 1}${alignr}${top mem 1}%
+${top_mem name 2}${alignr}${top mem 2}%
+${top_mem name 3}${alignr}${top mem 3}%
+${top_mem name 4}${alignr}${top mem 4}%
+${top_mem name 5}${alignr}${top mem 5}%
+ 
+${color 868A8E}NETWORK$color
+${color 545C64}${downspeedgraph eth0 25, 150 9F440D 9F440D}$color
+DL: ${downspeed eth0} $alignr total: ${totaldown eth0}
+${color 545C64}${upspeedgraph eth0 25, 150 9F440D 9F440D}$color
+UL: ${upspeed eth0} $alignr total: ${totalup eth0}
